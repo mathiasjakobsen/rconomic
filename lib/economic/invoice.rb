@@ -23,7 +23,8 @@ module Economic
       :public_entry_number,
       :is_vat_included,
       :text_line_1,
-      :text_line_2
+      :text_line_2,
+      :remainder
 
     def attention
       return nil if attention_handle.nil?
