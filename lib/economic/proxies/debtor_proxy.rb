@@ -21,17 +21,17 @@ module Economic
       build_entities_from_handles(:debtor_contact, handles)
     end
 
-    def get_invoices(debtor_handle, format = :entitites)
+    def get_invoices(debtor_handle, format = :entity)
       handles = fetch_handles(:get_invoices, debtor_handle)
       send("build_#{format}_array_from_handles", *[:invoice, handles])
     end
 
-    def get_orders(debtor_handle, format = :entitites)
+    def get_orders(debtor_handle, format = :entity)
       handles = fetch_handles(:get_orders, debtor_handle)
       send("build_#{format}_array_from_handles", *[:order, handles])
     end
 
-    def get_current_invoices(debtor_handle, format = :entitites)
+    def get_current_invoices(debtor_handle, format = :entity)
       handles = fetch_handles(:get_current_invoices, debtor_handle)
       send("build_#{format}_array_from_handles", *[:current_invoice, handles])
     end
