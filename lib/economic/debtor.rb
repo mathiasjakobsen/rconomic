@@ -57,9 +57,9 @@ module Economic
 
     # Provides access to the current invoices for Debtor - ie invoices that
     # haven't yet been booked
-    def current_invoices
+    def current_invoices(format = :entity)
       return [] if self.handle.empty?
-      @current_invoices ||= DebtorProxy.new(self).get_current_invoices(self.handle)
+      @current_invoices ||= DebtorProxy.new(self).get_current_invoices(self.handle, format)
     end
 
     # Returns the Debtors contacts
@@ -68,14 +68,14 @@ module Economic
       @contacts ||= DebtorProxy.new(self).get_debtor_contacts(handle)
     end
 
-    def invoices
+    def invoices(format = :entity)
       return [] if handle.empty?
-      @invoices ||= DebtorProxy.new(self).get_invoices(handle)
+      @invoices ||= DebtorProxy.new(self).get_invoices(handle, format)
     end
 
-    def orders
+    def orders(format = :entity)
       return [] if handle.empty?
-      @orders ||= DebtorProxy.new(self).get_orders(handle)
+      @orders ||= DebtorProxy.new(self).get_orders(handle, format)
     end
 
     protected
