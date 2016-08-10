@@ -50,7 +50,8 @@ module Economic
     end
 
     def build_entity_array_from_handles(class_name, handles)
-      get_proxy_from_name(class_name).get_data_array(handles).map! do |data|
+      proxy = get_proxy_from_name(class_name)
+      proxy.get_data_array(handles).map! do |data|
         entity = proxy.build(data)
         entity.persisted = true
         entity.partial = false
