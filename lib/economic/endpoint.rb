@@ -8,6 +8,9 @@ class Economic::Endpoint
   def_delegator "client.globals", :log_level, :log_level=
   def_delegator "client.globals", :log, :log=
 
+  def_delegators :wsdl
+  attr_accessor :wsdl
+
   # Create a new Endpoint
   #
   # Economic::Session uses this internally
@@ -44,7 +47,7 @@ class Economic::Endpoint
   # take several hundred megabytes of RAM after a while...)
   def client
     @@client ||= Savon.client do
-      wsdl      File.expand_path(File.join(File.dirname(__FILE__), "economic.wsdl"))
+      wsdl      @wsdl || File.expand_path(File.join(File.dirname(__FILE__), "economic.wsdl"))
       log       false
       log_level :info
       headers("X-EconomicAppIdentifier" => @app_identifier) if @app_identifier
