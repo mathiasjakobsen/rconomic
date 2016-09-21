@@ -47,7 +47,7 @@ class Economic::Endpoint
   # take several hundred megabytes of RAM after a while...)
   def client
     @@client ||= Savon.client do
-      wsdl      (@wsdl || File.expand_path(File.join(File.dirname(__FILE__), "economic.wsdl")))
+      wsdl      File.expand_path(File.join(File.dirname(__FILE__), "#{@wsdl}.wsdl"))
       log       false
       log_level :info
       headers("X-EconomicAppIdentifier" => @app_identifier) if @app_identifier
