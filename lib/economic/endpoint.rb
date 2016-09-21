@@ -49,7 +49,7 @@ class Economic::Endpoint
 
     wsdl_path = File.expand_path(File.join(File.dirname(__FILE__), "#{@wsdl || 'economic'}.wsdl"))
 
-    @@client ||= Savon.client do
+    @client ||= Savon.client do
       wsdl      wsdl_path
       log       false
       log_level :info
