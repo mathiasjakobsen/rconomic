@@ -49,6 +49,7 @@ require "economic/proxies/debtor_group_proxy"
 
 require "economic/proxies/actions/debtor_contact/all"
 require "economic/proxies/actions/find_by_name"
+require "economic/proxies/actions/find_by_other_reference"
 
 # http://www.e-conomic.com/apidocs/Documentation/index.html
 # https://www.e-conomic.com/secure/api1/EconomicWebService.asmx
